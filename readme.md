@@ -70,13 +70,13 @@ MONGO_URI=mongodb+srv://<username>:<password>@<cluster-url>/<database-name>
 1. Build the Docker image:
 
     ```
-    docker-compose build
+    docker compose build
     ```
 
 2. Start the application:
 
     ```
-    docker-compose up
+    docker compose up
     ```
 
 3. The Flask API will be accessible at:
