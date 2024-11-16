@@ -46,6 +46,12 @@ Delete a User by ID
 
 ---
 
+## **Deployment**
+This app is deployed on vercel at - https://flask-crud-168u.vercel.app
+You can test the API using Postman or curl by sending requests to the deployment URL.
+
+
+
 ## **Setup and Installation**
 
 ### **Clone the Repository**
