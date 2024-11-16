@@ -51,8 +51,8 @@ Delete a User by ID
 ### **Clone the Repository**
 
 ```bash
-git clone https://github.com/rya23/flask-crud.git
-cd flask-crud
+git clone https://github.com/rya23/flask_crud.git
+cd flask_crud
 ```
 
 ### **Docker Setup**
