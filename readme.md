@@ -1,4 +1,4 @@
-# **Flask CRUD API **
+# **Flask CRUD API**
 
 This is a simple CRUD (Create, Read, Update, Delete) REST API built using **Flask**, **MongoDB**. The API allows managing users, providing endpoints for creating, reading, updating, and deleting users.
 
