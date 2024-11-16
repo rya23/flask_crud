@@ -1,15 +1,23 @@
 {
-    "version": 1,
+    "version": 2,
     "builds": [
         {
-            "src": "./run.py",
-            "use": "@vercel/python"
+            "src": "run.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.12"
+            }
+        },
+        {
+            "src": "build_files.sh",
+            "use": "@vercel/static-build"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/"
+            "dest": "run.py"
         }
     ]
 }
