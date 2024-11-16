@@ -19,7 +19,7 @@ def get_user_by_id(user_id):
     user = UserController.get_user_by_id(user_id)
 
     if user:
-        return json_util.dumps(user)
+        return Response(json_util.dumps(user), mimetype="application/json")
     return jsonify({"error": "User not found"}), 404
 
 
@@ -29,7 +29,7 @@ def create_user():
         data = request.json
         user = User(**request.get_json())
         created_user = UserController.create_user(user.to_dict())
-        return json_util.dumps(created_user)
+        return Response(json_util.dumps(created_user), mimetype="application/json")
     except ValidationError as e:
         return jsonify(e.errors()), 400
 
@@ -40,7 +40,7 @@ def update_user(user_id):
         data = request.json
         updated_user = UserController.update_user(user_id, data)
         if updated_user:
-            return json_util.dumps(updated_user)
+            return Response(json_util.dumps(updated_user), mimetype="application/json")
         return jsonify({"error": "User not found"}), 404
     except ValidationError as e:
         return jsonify(e.errors()), 400
