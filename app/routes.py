@@ -3,6 +3,7 @@ from flask import Blueprint, json, jsonify, request, Response
 from app.controller import UserController
 from app.models import User
 from pydantic import ValidationError
+from bson import json_util
 
 user_bp = Blueprint("user", __name__, url_prefix="/user")
 
@@ -10,7 +11,7 @@ user_bp = Blueprint("user", __name__, url_prefix="/user")
 @user_bp.route("/", methods=["GET"])
 def get_users():
     all_users = UserController.get_all_users()
-    return json.dumps(all_users, default=str)
+    return Response(json_util.dumps(all_users), mimetype="application/json")
 
 
 @user_bp.route("/<user_id>", methods=["GET"])
@@ -18,7 +19,7 @@ def get_user_by_id(user_id):
     user = UserController.get_user_by_id(user_id)
 
     if user:
-        return json.dumps(user, default=str)
+        return json_util.dumps(user)
     return jsonify({"error": "User not found"}), 404
 
 
@@ -28,7 +29,7 @@ def create_user():
         data = request.json
         user = User(**request.get_json())
         created_user = UserController.create_user(user.to_dict())
-        return json.dumps(created_user, default=str)
+        return json_util.dumps(created_user)
     except ValidationError as e:
         return jsonify(e.errors()), 400
 
@@ -39,7 +40,7 @@ def update_user(user_id):
         data = request.json
         updated_user = UserController.update_user(user_id, data)
         if updated_user:
-            return json.dumps(updated_user, default=str)
+            return json_util.dumps(updated_user)
         return jsonify({"error": "User not found"}), 404
     except ValidationError as e:
         return jsonify(e.errors()), 400
