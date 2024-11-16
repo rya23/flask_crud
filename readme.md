@@ -1,4 +1,4 @@
-# **Flask CRUD API **
+# **Flask CRUD API**
 
 This is a simple CRUD (Create, Read, Update, Delete) REST API built using **Flask**, **MongoDB**. The API allows managing users, providing endpoints for creating, reading, updating, and deleting users.
 
@@ -51,8 +51,8 @@ Delete a User by ID
 ### **Clone the Repository**
 
 ```bash
-git clone https://github.com/rya23/flask-crud.git
-cd flask-crud
+git clone https://github.com/rya23/flask_crud.git
+cd flask_crud
 ```
 
 ### **Docker Setup**
